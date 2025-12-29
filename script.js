@@ -12,7 +12,7 @@ if (slides.length > 0) {
     setInterval(showNextSlide, 4500); // Image changes every 4.5 seconds
 }
 
-// 2. Scroll Animation Logic
+// 2. Scroll Reveal Animation
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
