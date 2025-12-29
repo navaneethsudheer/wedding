@@ -1,4 +1,4 @@
-// Background Slideshow
+// 1. Slideshow Logic
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
@@ -9,10 +9,10 @@ function showNextSlide() {
 }
 
 if (slides.length > 0) {
-    setInterval(showNextSlide, 4000);
+    setInterval(showNextSlide, 4500); // Image changes every 4.5 seconds
 }
 
-// Section Fade-in Effect
+// 2. Scroll Animation Logic
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -22,9 +22,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.content-section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'all 1s ease-out';
-    observer.observe(section);
+// Apply fade-in effect to all glass boxes
+document.querySelectorAll('.glass-box').forEach(box => {
+    box.style.opacity = '0';
+    box.style.transform = 'translateY(30px)';
+    box.style.transition = 'all 1s ease-out';
+    observer.observe(box);
 });
