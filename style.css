@@ -1,81 +1,122 @@
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.2);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --navy: #002366;
-    --white: #ffffff;
+    --pearl: rgba(255, 255, 255, 0.95);
+    --gold: #c5a059;
+    --sage: #8da394;
+    --dark: #2c3e50;
+    --paper: #fdfaf5;
 }
 
 body {
     margin: 0; padding: 0;
-    font-family: 'Poppins', sans-serif;
-    color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark);
+    background: #f8f6f2;
     overflow-x: hidden;
 }
 
-.slideshow-container {
+/* --- ENVELOPE OVERLAY --- */
+#invitation-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
+    background: var(--paper);
+    z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+    transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
 }
 
-.slide {
-    position: absolute; width: 100%; height: 100%;
-    background-size: cover; background-position: center;
-    opacity: 0; transition: opacity 2s ease-in-out;
+.envelope-wrapper {
+    position: relative;
+    width: 320px; height: 460px;
+    background: var(--sage);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    border-radius: 4px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    perspective: 1500px;
 }
 
+.envelope-flap {
+    position: absolute;
+    top: 0; width: 100%; height: 50%;
+    background: var(--sage);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 10;
+    transform-origin: top;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wax-seal {
+    width: 70px; height: 70px;
+    background: radial-gradient(circle, #d4af37, #b8860b);
+    border-radius: 50%;
+    position: absolute; left: 50%; bottom: -35px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+    z-index: 11;
+}
+
+.seal-initials { color: white; font-family: 'Cormorant Garamond'; font-size: 1.5rem; letter-spacing: 2px; }
+
+.envelope-inner-card {
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    background: white;
+    z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; border: 1px solid #f0f0f0;
+    padding: 20px;
+}
+
+.flap-spacer { height: 40%; width: 100%; }
+
+.invite-names { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--dark); margin: 10px 0; }
+.invite-sub { font-size: 0.6rem; letter-spacing: 3px; color: #999; }
+
+.is-open .envelope-flap { transform: rotateX(165deg); }
+.dismissed { transform: translateY(-100%); }
+
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    70% { transform: translateX(-50%) scale(1.05); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* --- CONTENT DESIGN --- */
+.gallery-container { width: 100%; height: 65vh; position: relative; overflow: hidden; margin-bottom: -40px; }
+.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: 2s ease-in-out; }
 .slide.active { opacity: 1; }
 
-.glass-wrapper {
-    width: 100%;
-    display: flex; flex-direction: column; align-items: center;
-    padding: 20px 0;
-}
+.content-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
 
-.glass-box {
-    background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 40px;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
+.pearl-card {
+    background: var(--pearl);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    width: 90%; max-width: 500px;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
-.hero-section {
-    height: 100vh; display: flex; align-items: center; justify-content: center; width: 100%;
+.main-title { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; margin: 0; font-weight: 300; }
+.amp { font-style: italic; color: var(--gold); }
+.aesthetic-line { width: 50px; height: 1px; background: var(--gold); margin: 25px auto; }
+
+.invitation-text { font-size: 0.95rem; line-height: 1.8; opacity: 0.8; margin-bottom: 10px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 15px; }
+
+.tag { font-size: 0.65rem; letter-spacing: 4px; color: var(--gold); font-weight: bold; margin-bottom: 15px; }
+.time-text { color: var(--gold); font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; }
+.location-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin: 5px 0; }
+.sub-text { font-size: 0.85rem; color: #777; margin-bottom: 20px; }
+
+.pearl-btn {
+    display: inline-block; padding: 10px 30px; border: 1px solid var(--gold);
+    color: var(--gold); text-decoration: none; font-size: 0.8rem; border-radius: 50px;
 }
 
-.hero-box h1 { font-size: 3rem; margin: 0 0 10px 0; font-family: 'Playfair Display', serif; }
-.hero-details { font-size: 1rem; letter-spacing: 2px; font-weight: 600; }
-
-.welcome-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px; }
-.invitation-text { font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px; }
-
-.schedule-card {
-    display: flex; text-align: left; margin-bottom: 20px;
-    border-left: 3px solid var(--navy); padding-left: 15px;
-}
-
-.schedule-time { flex: 0 0 100px; font-weight: bold; font-size: 0.8rem; }
-.schedule-header { color: var(--navy); margin: 30px 0 20px 0; }
-.glass-divider { border: 0; height: 1px; background: var(--glass-border); margin: 40px 0; }
-
-.location-btn {
-    display: inline-block; margin-top: 10px; padding: 10px 20px;
-    background: var(--navy); color: white; text-decoration: none;
-    border-radius: 30px; font-size: 0.8rem; transition: 0.3s;
-}
-
-.location-btn:hover { background: #001a4d; transform: scale(1.05); }
-
-@media (max-width: 600px) {
-    .glass-box { padding: 25px; width: 85%; }
-    .hero-box h1 { font-size: 2.2rem; }
-    .schedule-card { flex-direction: column; }
-    .schedule-time { border-bottom: 1px solid var(--navy); margin-bottom: 5px; width: fit-content; }
-}
+.footer-text { padding: 40px 0; color: #999; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; }

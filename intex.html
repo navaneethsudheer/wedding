@@ -3,93 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul & Lavanya | Wedding</title>
-    <link href="style.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Rahul & Lavanya | The Wedding</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="slideshow-container">
-        <div class="slide active" style="background-image: url('ss photo1.jpeg')"></div>
-        <div class="slide" style="background-image: url('ss photo2.jpeg')"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1500&q=80')"></div>
+    <div id="invitation-overlay">
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope-back"></div>
+            
+            <div class="envelope-inner-card">
+                <div class="flap-spacer"></div> 
+                <p class="invite-sub">THE FORMAL INVITATION</p>
+                <h2 class="invite-names">Rahul & Lavanya</h2>
+                <p class="invite-date">JANUARY 25, 2026</p>
+            </div>
+
+            <div class="envelope-flap">
+                <div class="wax-seal" onclick="openInvitation()">
+                    <span class="seal-initials">RL</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <main class="glass-wrapper">
-        <header class="hero-section">
-            <div class="glass-box hero-box">
-                <h1>Rahul & Lavanya</h1>
-                <p class="hero-details">JANUARY 25, 2026</p>
-            </div>
-        </header>
-
-        <section class="content-section">
-            <div class="glass-box">
-                <h2 class="welcome-title">We Are Getting Married!</h2>
-                <p class="invitation-text">
-                    With the blessings of our elders and family, we joyfully invite you to join us as we celebrate the wedding of 
-                    <strong>Lavanya</strong> and <strong>Rahul</strong>.
-                </p>
-                <p>Your presence will make our celebration truly special. We can't wait to see you there!</p>
+    <main class="content-wrapper">
+        
+        <section class="gallery-container">
+            <div class="slides-wrapper">
+                <div class="slide active" style="background-image: url('IMG(1).jpG')"></div>
+                <div class="slide" style="background-image: url('IMG(2).jpg')"></div>
+                <div class="slide" style="background-image: url('IMG(3).jpg')"></div>
+                <div class="slide" style="background-image: url('IMG(4).jpg')"></div>
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="glass-box">
-                <h2 class="section-title">Event Schedules</h2>
-                
-                <h3 class="schedule-header">The Wedding</h3>
-                <div class="schedule-card">
-                    <div class="schedule-time">DATE</div>
-                    <div class="schedule-details">
-                        <h3>Sunday, 25 January 2026</h3>
-                        <p>1201 Makaram 11</p>
-                    </div>
-                </div>
-                <div class="schedule-card">
-                    <div class="schedule-time">MUHURTHAM</div>
-                    <div class="schedule-details">
-                        <h3>12:15 PM - 1:00 PM</h3>
-                        <p>Traditional Ceremony</p>
-                    </div>
-                </div>
-                <div class="schedule-card">
-                    <div class="schedule-time">VENUE</div>
-                    <div class="schedule-details">
-                        <h3>PCR Bank Auditorium</h3>
-                        <p>Kalliasseri, Kannur</p>
-                        <a href="https://maps.app.goo.gl/hRGfXpJy4kZ8bXaT6?g_st=ipc" target="_blank" class="location-btn">📍 View Wedding Venue</a>
-                    </div>
-                </div>
+        <header class="pearl-card hero-card">
+            <p class="hero-pre">SAVE THE DATE</p>
+            <h1 class="main-title">Rahul <span class="amp">&</span> Lavanya</h1>
+            <div class="aesthetic-line"></div>
+            <p class="hero-details">JANUARY 25 • 2026</p>
+        </header>
 
-                <hr class="glass-divider">
+        <section class="pearl-card">
+            <h2 class="section-title">We Are Getting Married!</h2>
+            <p class="invitation-text">
+                With the blessings of our elders and family, we joyfully invite you to join us as we celebrate the wedding of 
+                <strong>Lavanya</strong> and <strong>Rahul</strong>.
+            </p>
+            <p class="invitation-text">Your presence will make our celebration truly special.</p>
+        </section>
 
-                <h3 class="schedule-header">The Reception</h3>
-                <div class="schedule-card">
-                    <div class="schedule-time">TIME</div>
-                    <div class="schedule-details">
-                        <h3>06:00 PM - 09:00 PM</h3>
-                        <p>Dinner & Music</p>
-                    </div>
-                </div>
-                <div class="schedule-card">
-                    <div class="schedule-time">VENUE</div>
-                    <div class="schedule-details">
-                        <h3>Riftha Hall Luxury Convention Centre</h3>
-                        <p>Manna, Valapattanam</p>
-                        <a href="https://maps.app.goo.gl/QDNurJLtDrbNdXbK9?g_st=ipc" target="_blank" class="location-btn">📍 View Reception Venue</a>
-                    </div>
-                </div>
+        <section class="pearl-card">
+            <p class="tag">THE WEDDING</p>
+            <h2 class="section-title">Muhurtham</h2>
+            <div class="schedule-detail">
+                <p class="event-date">Sunday, 25 January 2026</p>
+                <p class="time-text">12:15 PM - 1:00 PM</p>
+                <h3 class="location-name">PCR Bank Auditorium</h3>
+                <p class="sub-text">Kalliasseri, Kannur</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=PCR+Bank+Auditorium+Kalliasseri+Kannur" target="_blank" class="pearl-btn">📍 View Map</a>
+            </div>
+        </section>
+
+        <section class="pearl-card">
+            <p class="tag">THE RECEPTION</p>
+            <h2 class="section-title">Celebration</h2>
+            <div class="schedule-detail">
+                <p class="event-date">Sunday, 25 January 2026</p>
+                <p class="time-text">6:00 PM - 9:00 PM</p>
+                <h3 class="location-name">Riftha Hall Luxury</h3>
+                <p class="sub-text">Manna, Valapattanam</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Riftha+Hall+Luxury+Convention+Centre+Valapattanam" target="_blank" class="pearl-btn">📍 View Map</a>
             </div>
         </section>
 
         <footer>
-            <div class="glass-box footer-box">
-                <p>We can't wait to see you!</p>
-            </div>
+            <p class="footer-text">We can't wait to see you!</p>
         </footer>
     </main>
 
-    <script src="script.js"></script>    
+    <script src="script.js"></script>
 </body>
 </html>
